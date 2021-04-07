@@ -1,2 +1,2 @@
 # nft-collectables-wallet
-Open sourced NFT Collectables mobile wallet 
+Open source NFT Collectibles mobile wallet 
