@@ -1,0 +1,3 @@
+export const GENERATE_PHRASE = "GENERATE_PHRASE"
+export const UPDATE_FEED = "UPDATE_FEED"
+export const LIKE_POST = "LIKE_POST"
