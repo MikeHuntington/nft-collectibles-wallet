@@ -1,13 +1,13 @@
-import { GENERATE_PHRASE, GENERATE_PHRASE_SUCCESS } from '../types';
+import { GENERATE_PHRASE } from '../types';
 
 
 const initialState = {
-  phrase: null
+  phrase: undefined
 };
 
 export function keyringReducer(state = initialState, action) {
   switch (action.type) {
-    case GENERATE_PHRASE_SUCCESS: {
+    case GENERATE_PHRASE: {
       return {
         ...state,
         phrase: action.payload

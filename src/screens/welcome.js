@@ -1,12 +1,10 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native'
 import styled from 'styled-components/native';
-
-import { Button } from 'react-native-elements'
 
 import {AppScreens} from '../navigation/AuthNavigator'
 
-import Text from '../components/Text';
+import { Button } from 'react-native-elements'
+import Text from '../components/Text'
 
 
 const Welcome = ({navigation}) => {

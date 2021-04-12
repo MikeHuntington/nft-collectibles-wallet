@@ -12,7 +12,7 @@ import { generatePhrase } from '../redux/actions'
 const CreatePhrase = () => {
     const dispatch = useDispatch()
     const [phraseSaved, setPhraseSaved] = useState(false)
-    const { phrase } = useSelector((state) => state.keyring)
+    const { phrase } = useSelector((state) => state.keyringReducer)
 
     useEffect(() => {
         dispatch(generatePhrase())
@@ -27,7 +27,7 @@ const CreatePhrase = () => {
             <Divider />
 
             <MnemonicSeed>
-                <Text color={"silver"} title center heavy>{phrase?.phrase}</Text>
+                <Text color={"silver"} title center heavy>{phrase}</Text>
             </MnemonicSeed>
 
             <Warning>
