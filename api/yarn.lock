@@ -1658,7 +1658,7 @@
     eventemitter3 "^4.0.7"
     store "^2.0.12"
 
-"@polkadot/util-crypto@6.1.1", "@polkadot/util-crypto@^6.0.5":
+"@polkadot/util-crypto@6.1.1", "@polkadot/util-crypto@^6.0.5", "@polkadot/util-crypto@^6.1.1":
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/@polkadot/util-crypto/-/util-crypto-6.1.1.tgz#dc9ee86656bbaf59b41c5a1cf40fa025b44aaf27"
   integrity sha512-xKDqudvMCirQZ4df2PiWEdlNntNn5gUx/2gTNId7MoE4j4y0edLTwiQ6B2EgRCyLxCaIY+sw6Z5NL5ik1NHdcw==
