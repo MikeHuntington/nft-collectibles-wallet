@@ -4,12 +4,12 @@ import styled from 'styled-components/native'
 
 
 import { CheckBox, Button } from 'react-native-elements'
-import Text from '../components/Text'
+import Text from '../../components/Text'
 //import Button from '../components/Button'
-import { generatePhrase } from '../redux/actions'
+import { generatePhrase } from '../../redux/actions'
 
 
-const CreatePhrase = () => {
+const Phrase = () => {
     const dispatch = useDispatch()
     const [phraseSaved, setPhraseSaved] = useState(false)
     const { phrase } = useSelector((state) => state.keyringReducer)
@@ -62,7 +62,7 @@ const CreatePhrase = () => {
     )
 }
 
-export default CreatePhrase;
+export default Phrase;
 
 /* Styles */
 const Container = styled.View`

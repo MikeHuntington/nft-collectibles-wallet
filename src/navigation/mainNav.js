@@ -1,12 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 
-import AuthNavigator from './AuthNavigator/authStack'
+import AuthNavigator from './AuthNavigator'
+import DrawerNavigator from './DrawerNavigator'
 
 const MainNav = () => {
+    const [isWalletCreated, setIsWalletCreated] = useState(true)
+
     return (
         <NavigationContainer>
-            <AuthNavigator />
+            {isWalletCreated ? <DrawerNavigator /> : <AuthNavigator />}
         </NavigationContainer>
     )
 }

@@ -1,10 +1,11 @@
-import React from 'react';
-import styled from 'styled-components/native';
+import React from 'react'
+import { Text } from 'react-native'
+import styled from 'styled-components/native'
+import globalStyles from '../../extra/styles/global'
 
-import {AppScreens} from '../navigation/AuthNavigator'
+import {AuthScreens} from '../../navigation/AuthNavigator'
 
 import { Button } from 'react-native-elements'
-import Text from '../components/Text'
 
 
 const Welcome = ({navigation}) => {
@@ -12,19 +13,19 @@ const Welcome = ({navigation}) => {
         <SafeArea>
             <Container>
                 <Logo>
-                    <Image source={require('../../assets/TokenLogo.png')}/>
-                    <Text large bold color="#ffffff" margin="20px 0">NFT Wallet</Text>
+                    <Image source={require('../../../assets/TokenLogo.png')}/>
+                    <Text style={globalStyles.titleText}>NFT Wallet</Text>
                 </Logo>
 
                 <CreateWalletButton 
                     title="Create a new wallet"
-                    onPress={() => navigation.navigate(AppScreens.CreatePassword)}
+                    onPress={() => navigation.navigate(AuthScreens.CreatePassword)}
                 />
 
                 <RestoreWalletButton
                     title="I already have a wallet" 
                     type="clear"
-                    onPress={() => navigation.navigate(AppScreens.CreatePassword)}
+                    onPress={() => navigation.navigate(AuthScreens.CreatePassword)}
                 />
             </Container>
         </SafeArea>

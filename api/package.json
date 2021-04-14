@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npx ./scripts/build.js & npx gulp",
+    "build": "npx ./scripts/build.js && npx gulp",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

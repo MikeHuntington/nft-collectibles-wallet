@@ -1,17 +1,13 @@
-import React, {FC} from 'react';
+import React from 'react';
+import Text from '../../components/Text'
+
 import styled from 'styled-components/native'
 
-import {AppScreens} from '../navigation/AuthNavigator'
-
-import Text from '../components/Text'
-import Button from '../components/Button';
-
-
-const CreatePassword = ({navigation}) => {
+const Login = () => {
     return (
         <Container>
             <Main>
-                <Text large bold>Create Your Password</Text>
+                <Text title bold center>Create Your Password</Text>
             </Main>
             <HeaderGraphic>
                 <RightCircle />
@@ -21,42 +17,37 @@ const CreatePassword = ({navigation}) => {
             <Auth>
                 <AuthContainer>
                     <AuthTitle>Password</AuthTitle>
-                    <AuthField 
-                        secureTextEntry 
-                        autoFocus={true} 
-                        autoCapitalize="none" 
-                        autoCompleteType="password" 
-                        autoCorrect={false} 
-                    />
-                </AuthContainer>
+                    <AuthField secureTextEntry autoCapitalize="none" autoCompleteType="password" autoCorrect={false} />
 
-                <AuthContainer>
                     <AuthTitle>Confirm Password</AuthTitle>
-                    <AuthField 
-                        secureTextEntry 
-                        autoCapitalize="none" 
-                        autoCompleteType="password" 
-                        autoCorrect={false} 
-                    />
+                    <AuthField secureTextEntry autoCapitalize="none" autoCompleteType="password" autoCorrect={false} />
                 </AuthContainer>
             </Auth>
 
             <Spacer />
 
-            <CreateButton 
-                onPress={() => navigation.navigate(AppScreens.CreatePhrase)}
-                >
+            <SignInContainer>
                 <Text bold center color="#ffffff">
                     Create Password
                 </Text>
-            </CreateButton>
+            </SignInContainer>
+
+            <CreateWalletButton>
+                <Text small center>
+                    Need a Collectibles Wallet?{" "}
+                
+                    <Text bold color="#8022d9">
+                        Create One Here.
+                    </Text>
+                </Text>
+            </CreateWalletButton>
 
             <StatusBar barStyle="light-content" />
         </Container>
     )
 }
 
-export default CreatePassword;
+export default Login;
 
 /* Styles */
 const Container = styled.View`
@@ -101,11 +92,10 @@ const StatusBar = styled.StatusBar`
 `;
 
 const Auth = styled.View`
-    margin: 34px 32px 0 32px;
+    margin: 64px 32px 32px;
 `
 
 const AuthContainer = styled.View`
-    margin-bottom: 32px;
 `
 
 const AuthTitle = styled(Text)`
@@ -121,7 +111,7 @@ const AuthField = styled.TextInput`
     height: 48px;
 `
 
-const CreateButton = styled(Button)`
+const SignInContainer = styled.TouchableOpacity`
     margin: 0 32px;
     height: 48px;
     align-items: center;
