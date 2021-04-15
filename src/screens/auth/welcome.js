@@ -3,7 +3,7 @@ import { Text } from 'react-native'
 import styled from 'styled-components/native'
 import globalStyles from '../../extra/styles/global'
 
-import {AuthScreens} from '../../navigation/AuthNavigator'
+import {AuthScreens} from '../../extra/constants'
 
 import { Button } from 'react-native-elements'
 
