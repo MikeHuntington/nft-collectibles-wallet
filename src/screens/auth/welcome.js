@@ -13,8 +13,14 @@ const Welcome = ({navigation}) => {
     return (
         <SafeArea>
             <BackgroundImage source={require('../../../assets/Background.png')}/>
+            <Footer>
+                <FooterContainer>
+                    <SocialIcon></SocialIcon>
+                    <SocialIcon></SocialIcon>
+                    <SocialIcon></SocialIcon>
+                </FooterContainer>
+            </Footer>
             <Container>
-                <View style={{flex: 1}}></View>
                 <Logo>
                     <Image source={require('../../../assets/LootBoxLogo-SwordTagLine.png')}/>
                 </Logo>
@@ -47,6 +53,9 @@ const Container = styled.View`
     flex: 1;
     justify-content: flex-end;
     padding: 0 32px 32px 32px;
+    background-color: white;
+    border-radius: 60px;
+    margin: 100px 0 150px 0;
 `;
 
 const Logo = styled.View`
@@ -94,10 +103,33 @@ const BackgroundImage = styled.Image.attrs({
     position: absolute;
     width: 100%;
     height: 120%;
-    bottom: 0;
     top: 0;
 `
 
-const Main = styled.View`
-    margin: 192px 0 32px;
-`;
+const Footer = styled.View`
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: #2c2c5c;
+    position: absolute;
+    padding: 0 70px 65px 70px;
+    height: 250px;
+    width: 100%;
+    bottom: 0;
+`
+
+const FooterContainer = styled.View`
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #2c2c5c;
+    width: 380px;
+`
+
+const SocialIcon = styled.View`
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: white;
+`

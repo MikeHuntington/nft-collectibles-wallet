@@ -41,7 +41,7 @@ const Thumbnail = styled.View`
 `
 
 const EmptyView = styled.View`
-  background-color: red;
+  background-color: transparent;
 `
 
 const Title = styled(Text)`

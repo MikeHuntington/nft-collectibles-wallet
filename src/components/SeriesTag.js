@@ -13,7 +13,7 @@ const SeriesTag = ({...props}) => {
 export default SeriesTag;
 
 const Tag = styled.View`
-    border-radius: 30px;
+    border-radius: 20px;
     background-color: ${props => props.color ?? "#404fa3"};
     height: 60px;
     width: 200px;
