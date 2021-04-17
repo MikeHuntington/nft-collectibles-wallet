@@ -1,16 +1,54 @@
-import React from 'react'
+import React, {useEffect, useState, useContext} from 'react'
+import {useDispatch} from 'react-redux'
 import styled from 'styled-components/native'
 
 import globalStyles from '../../extra/styles/global'
 import {AuthScreens} from '../../extra/constants'
+import { fbLogin, googleLogin } from '../../redux/actions'
 
 import Text from '../../components/Text'
-
 import { Button } from 'react-native-elements'
 import { View } from 'react-native'
 
 
 const Welcome = ({navigation}) => {
+    const dispatch = useDispatch()
+
+    const initSocialLogin = async () => {
+        try {
+            //
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    useEffect(() => {
+        initSocialLogin()
+    }, [])
+
+    const handleFBLoginPress = async () => {
+        dispatch(fbLogin());
+    }
+
+    const handleGoogleLoginPress = async () => {
+        dispatch(googleLogin());
+    }
+
+
+    const handleFBLoginPressOld = async () => {
+        const { type, token, user, error } = await fbLogin();
+    
+        if (type && token) {
+        if (type === 'success') {
+            // DISPATCH TOKEN AND USER DATA
+            // TO HANDLE NAVIGATION TO HOME AND DISPLAY USER INFO
+            console.log({ type: 'FB_LOGIN', token, user });
+        }
+        } else if (error) {
+        console.log('The login attempt was cancelled', error);
+        }
+    };
+      
     return (
         <SafeArea>
             <BackgroundImage source={require('../../../assets/Background.png')}/>
@@ -19,7 +57,6 @@ const Welcome = ({navigation}) => {
                     <AdvancedUserButton
                         title="Advanced Users" 
                         type="clear"
-                        onPress={() => navigation.navigate(AuthScreens.CreatePassword)}
                     />
                 </FooterContainer>
             </Footer>
@@ -29,8 +66,8 @@ const Welcome = ({navigation}) => {
                 </Logo>
 
                 <SocialContainer>
-                    <SocialIcon></SocialIcon>
-                    <SocialIcon></SocialIcon>
+                    <SocialIcon onPress={handleFBLoginPress}></SocialIcon>
+                    <SocialIcon onPress={handleGoogleLoginPress}></SocialIcon>
                     <SocialIcon></SocialIcon>
                     <SocialIcon></SocialIcon>
                     <SocialIcon></SocialIcon>
@@ -149,7 +186,7 @@ const SocialContainer = styled.View`
     margin: 20px 0;
 `
 
-const SocialIcon = styled.View`
+const SocialIcon = styled.TouchableOpacity`
     width: 60px;
     height: 60px;
     margin: 10px;
