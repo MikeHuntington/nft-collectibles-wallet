@@ -17,9 +17,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "network.gamepower.LootBox"
     },
     "android": {
+      "package": "network.gamepower.LootBox",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
@@ -27,6 +30,9 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "facebookScheme": "fb1075972036247109",
+    "facebookAppId": "1075972036247109",
+    "facebookDisplayName": "LootBox Wallet"
   }
 }
