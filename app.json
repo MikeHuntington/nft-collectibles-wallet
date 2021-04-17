@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "nft-collectibles-wallet",
-    "slug": "nft-collectibles-wallet",
+    "name": "lootbox-wallet",
+    "slug": "lootbox-wallet",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
