@@ -27,7 +27,7 @@ const images = [
     "https://images.unsplash.com/photo-1618423835741-bf2cce88d21d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
     "https://images.unsplash.com/photo-1618449625138-62cb2b8a343a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
     "https://images.unsplash.com/photo-1618423835718-df9d86abc3bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
-    "https://images.unsplash.com/photo-1618502913824-e45c41e932d5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+    "https://images.unsplash.com/photo-1618513847270-992347f2c59c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80"
 ]
 
 const drops = images.map((image, index) => ({

@@ -13,7 +13,7 @@ const baseTheme = {
   };
 
 const MainNav = () => {
-    const [isWalletCreated, setIsWalletCreated] = useState(true)
+    const [isWalletCreated, setIsWalletCreated] = useState(false)
 
     return (
         <NavigationContainer theme={baseTheme}>

@@ -1,9 +1,10 @@
 import React from 'react'
-import { Text } from 'react-native'
 import styled from 'styled-components/native'
-import globalStyles from '../../extra/styles/global'
 
+import globalStyles from '../../extra/styles/global'
 import {AuthScreens} from '../../extra/constants'
+
+import Text from '../../components/Text'
 
 import { Button } from 'react-native-elements'
 import { View } from 'react-native'
@@ -15,9 +16,11 @@ const Welcome = ({navigation}) => {
             <BackgroundImage source={require('../../../assets/Background.png')}/>
             <Footer>
                 <FooterContainer>
-                    <SocialIcon></SocialIcon>
-                    <SocialIcon></SocialIcon>
-                    <SocialIcon></SocialIcon>
+                    <AdvancedUserButton
+                        title="Advanced Users" 
+                        type="clear"
+                        onPress={() => navigation.navigate(AuthScreens.CreatePassword)}
+                    />
                 </FooterContainer>
             </Footer>
             <Container>
@@ -25,16 +28,16 @@ const Welcome = ({navigation}) => {
                     <Image source={require('../../../assets/LootBoxLogo-SwordTagLine.png')}/>
                 </Logo>
 
-                <CreateWalletButton 
-                    title="Create a new wallet"
-                    onPress={() => navigation.navigate(AuthScreens.CreatePassword)}
-                />
-
-                <RestoreWalletButton
-                    title="I already have a wallet" 
-                    type="clear"
-                    onPress={() => navigation.navigate(AuthScreens.CreatePassword)}
-                />
+                <SocialContainer>
+                    <SocialIcon></SocialIcon>
+                    <SocialIcon></SocialIcon>
+                    <SocialIcon></SocialIcon>
+                    <SocialIcon></SocialIcon>
+                    <SocialIcon></SocialIcon>
+                    <SocialIcon></SocialIcon>
+                    <SocialIcon></SocialIcon>
+                    <SocialIcon></SocialIcon>
+                </SocialContainer>
             </Container>
         </SafeArea>
     )
@@ -55,11 +58,11 @@ const Container = styled.View`
     padding: 0 32px 32px 32px;
     background-color: white;
     border-radius: 60px;
-    margin: 100px 0 150px 0;
+    margin: 100px 0 100px 0;
 `;
 
 const Logo = styled.View`
-    flex: 4;
+    flex: 2;
     align-items: center;
     justify-content: center;
 `
@@ -85,6 +88,19 @@ const RestoreWalletButton = styled(Button).attrs({
     },
     buttonStyle: {
         height: 60
+    },
+})`
+    margin-top: 16px;
+`
+
+const AdvancedUserButton = styled(Button).attrs({
+    titleStyle: {
+        color: "#ffffff",
+        fontWeight: "600",
+        fontSize: 16
+    },
+    buttonStyle: {
+        
     },
 })`
     margin-top: 16px;
@@ -121,15 +137,22 @@ const Footer = styled.View`
 
 const FooterContainer = styled.View`
     flex: 1;
+    align-items: center;
+`
+
+const SocialContainer = styled.View`
+    flex: 1;
     flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: space-around;
-    background-color: #2c2c5c;
-    width: 380px;
+    margin: 20px 0;
 `
 
 const SocialIcon = styled.View`
     width: 60px;
     height: 60px;
+    margin: 10px;
     border-radius: 30px;
-    background-color: white;
+    background-color: lightblue;
 `
