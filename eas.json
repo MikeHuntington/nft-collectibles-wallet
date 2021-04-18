@@ -7,7 +7,7 @@
     },
     "ios": {
       "release": {
-        "workflow": "managed"
+        "workflow": "lootboxwallet"
       }
     }
   }
