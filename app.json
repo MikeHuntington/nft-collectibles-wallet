@@ -1,42 +1,12 @@
 {
+  "name": "nft-collectibles-wallet",
+  "displayName": "nft-collectibles-wallet",
   "expo": {
-    "name": "lootbox-wallet",
-    "slug": "lootbox-wallet",
+    "name": "nft-collectibles-wallet",
+    "slug": "nft-collectibles-wallet",
     "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
     "assetBundlePatterns": [
       "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "network.gamepower.LootBox",
-      "usesAppleSignIn": true,
-      "infoPlist": {
-        "CFBundleAllowMixedLocalizations": true
-      }
-    },
-    "android": {
-      "package": "network.gamepower.LootBox",
-      "versionCode": 1,
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "facebookScheme": "fb1075972036247109",
-    "facebookAppId": "1075972036247109",
-    "facebookDisplayName": "LootBox Wallet"
+    ]
   }
 }
