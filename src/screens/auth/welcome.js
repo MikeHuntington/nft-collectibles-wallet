@@ -4,11 +4,10 @@ import styled from 'styled-components/native'
 
 import globalStyles from '../../extra/styles/global'
 import {AuthScreens} from '../../extra/constants'
-import { fbLogin, googleLogin } from '../../redux/actions'
+import { fbLogin, googleLogin, appleLogin } from '../../redux/actions'
 
-import Text from '../../components/Text'
 import { Button } from 'react-native-elements'
-import { View } from 'react-native'
+import { AntDesign } from '@expo/vector-icons'
 
 
 const Welcome = ({navigation}) => {
@@ -32,6 +31,10 @@ const Welcome = ({navigation}) => {
 
     const handleGoogleLoginPress = async () => {
         dispatch(googleLogin());
+    }
+
+    const handleAppleLoginPress = async () => {
+        dispatch(appleLogin());
     }
 
 
@@ -66,14 +69,15 @@ const Welcome = ({navigation}) => {
                 </Logo>
 
                 <SocialContainer>
-                    <SocialIcon onPress={handleFBLoginPress}></SocialIcon>
-                    <SocialIcon onPress={handleGoogleLoginPress}></SocialIcon>
-                    <SocialIcon></SocialIcon>
-                    <SocialIcon></SocialIcon>
-                    <SocialIcon></SocialIcon>
-                    <SocialIcon></SocialIcon>
-                    <SocialIcon></SocialIcon>
-                    <SocialIcon></SocialIcon>
+                    <SocialIcon onPress={handleFBLoginPress}>
+                    <AntDesign name="facebook-square" size={34} color="white" />
+                    </SocialIcon>
+                    <SocialIcon onPress={handleGoogleLoginPress}>
+                    <AntDesign name="google" size={34} color="white" />
+                    </SocialIcon>
+                    <SocialIcon onPress={handleAppleLoginPress}>
+                        <AntDesign name="apple1" size={34} color="white" />
+                    </SocialIcon>
                 </SocialContainer>
             </Container>
         </SafeArea>
@@ -99,7 +103,7 @@ const Container = styled.View`
 `;
 
 const Logo = styled.View`
-    flex: 2;
+    flex: 4;
     align-items: center;
     justify-content: center;
 `
@@ -187,9 +191,11 @@ const SocialContainer = styled.View`
 `
 
 const SocialIcon = styled.TouchableOpacity`
+    align-items: center;
+    justify-content: center;
     width: 60px;
     height: 60px;
     margin: 10px;
     border-radius: 30px;
-    background-color: lightblue;
+    background-color: #404fa3;
 `

@@ -1,5 +1,6 @@
 import * as Facebook from 'expo-facebook'
 import * as Google from 'expo-google-app-auth'
+import * as AppleAuthentication from 'expo-apple-authentication'
 
 const GOOGLE_ANDROID_CLIENT_ID = "571002288984-kc2miucnquupq606p7qjcsch95vie0j9.apps.googleusercontent.com"
 const GOOGLE_IOS_CLIENT_ID = "571002288984-t4tv9boccu8vhdpr8se7khrf1vctrq5b.apps.googleusercontent.com"
@@ -50,6 +51,26 @@ export default {
       return { type, token: accessToken, user }
     } catch (e) {
       return { error: e }
+    }
+  },
+
+  appleLogin: async () => {
+    try {
+
+      const credential = await AppleAuthentication.signInAsync({
+        requestedScopes: [
+          AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
+          AppleAuthentication.AppleAuthenticationScope.EMAIL
+        ],
+      })
+      return credential;
+
+    } catch (e) {
+      if (e.code === 'ERR_CANCELED') {
+
+      } else {
+        // handle other errors
+      }
     }
   }
 

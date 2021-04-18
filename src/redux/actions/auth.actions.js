@@ -1,4 +1,11 @@
-import { FACEBOOK_LOGIN, FACEBOOK_LOGIN_SUCCESS, GOOGLE_LOGIN, GOOGLE_LOGIN_SUCCESS } from '../types';
+import { 
+  APPLE_LOGIN,
+  APPLE_LOGIN_SUCCESS,
+  FACEBOOK_LOGIN, 
+  FACEBOOK_LOGIN_SUCCESS, 
+  GOOGLE_LOGIN, 
+  GOOGLE_LOGIN_SUCCESS 
+} from '../types';
 
 
 export const fbLogin = () => {
@@ -19,6 +26,17 @@ export const googleLogin = () => {
 export const googleLoginSuccess = (payload) => {
   return {
     type: GOOGLE_LOGIN_SUCCESS,
+    payload
+  }
+}
+
+export const appleLogin = () => {
+  return { type: APPLE_LOGIN }
+}
+
+export const appleLoginSuccess = (payload) => {
+  return {
+    type: APPLE_LOGIN_SUCCESS,
     payload
   }
 }
