@@ -1,21 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler'
+import React from 'react'
+import {useFonts, Nunito_700Bold, Nunito_800ExtraBold} from '@expo-google-fonts/nunito'
+import { StatusBar } from 'react-native'
+import { Provider } from 'react-redux'
+import { configureStore } from './src/redux'
+
+import MainNav from './src/navigation/mainNav'
+import WebViewService from './src/components/WebViewService';
+import services from './src/services'
+import AppLoading from 'expo-app-loading'
 
 export default function App() {
+  let [fontsLoaded, error] = useFonts({ Nunito_700Bold, ExtraBold: Nunito_800ExtraBold })
+
+  if(!fontsLoaded) {
+      return (
+          <AppLoading 
+              onError={console.warn}
+          />
+      )
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={configureStore(services)}>
+      <StatusBar barStyle="dark-content" hidden />
+      <MainNav/>
+      <WebViewService />
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

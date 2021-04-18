@@ -1,9 +1,9 @@
 {
-  "name": "nft-collectibles-wallet",
-  "displayName": "nft-collectibles-wallet",
+  "name": "lootbox-wallet",
+  "displayName": "LootBox",
   "expo": {
-    "name": "nft-collectibles-wallet",
-    "slug": "nft-collectibles-wallet",
+    "name": "LootBox",
+    "slug": "lootbox-wallet",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
