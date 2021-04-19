@@ -10,11 +10,10 @@ const FACEBOOK_APP_NAME = "LootBox Wallet"
 export default {
   fbLogin: async () => {
     try {
-      await Facebook.initializeAsync({appId: FACEBOOK_APP_ID, appName:FACEBOOK_APP_NAME})
+      //await Facebook.initializeAsync(FACEBOOK_APP_ID)
 
       const { token, type } = await Facebook.logInWithReadPermissionsAsync(
         {
-          appId: FACEBOOK_APP_ID,
           permissions: ['public_profile'],
         }
       )
@@ -45,8 +44,8 @@ export default {
   googleLogin: async () => {
     try {
       const { type, accessToken, user } = await Google.logInAsync({
-        androidClientId: GOOGLE_ANDROID_CLIENT_ID,
-        iosClientId: GOOGLE_IOS_CLIENT_ID,
+        androidStandaloneAppClientId: GOOGLE_ANDROID_CLIENT_ID,
+        iosStandaloneAppClientId: GOOGLE_IOS_CLIENT_ID,
       })
   
       return { type, token: accessToken, user }

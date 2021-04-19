@@ -22,6 +22,11 @@
       "usesAppleSignIn": true,
       "infoPlist": {
         "CFBundleAllowMixedLocalizations": true
+      },
+      "config": {
+        "googleSignIn": {
+          "reservedClientId": "com.googleusercontent.apps.571002288984-t4tv9boccu8vhdpr8se7khrf1vctrq5b"
+        }
       }
     },
     "android": {

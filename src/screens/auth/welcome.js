@@ -9,13 +9,16 @@ import { fbLogin, googleLogin, appleLogin } from '../../redux/actions'
 import { Button } from 'react-native-elements'
 import { AntDesign } from '@expo/vector-icons'
 
+import * as Facebook from 'expo-facebook'
+const FACEBOOK_APP_ID = "fb1075972036247109"
+
 
 const Welcome = ({navigation}) => {
     const dispatch = useDispatch()
 
     const initSocialLogin = async () => {
         try {
-            //
+            await Facebook.initializeAsync({appId: FACEBOOK_APP_ID})
         } catch (e) {
             console.log(e)
         }
