@@ -14,6 +14,7 @@ export default {
 
       const { token, type } = await Facebook.logInWithReadPermissionsAsync(
         {
+          appId: FACEBOOK_APP_ID,
           permissions: ['public_profile'],
         }
       )
