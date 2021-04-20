@@ -39,21 +39,6 @@ const Welcome = ({navigation}) => {
     const handleAppleLoginPress = async () => {
         dispatch(appleLogin());
     }
-
-
-    const handleFBLoginPressOld = async () => {
-        const { type, token, user, error } = await fbLogin();
-    
-        if (type && token) {
-        if (type === 'success') {
-            // DISPATCH TOKEN AND USER DATA
-            // TO HANDLE NAVIGATION TO HOME AND DISPLAY USER INFO
-            console.log({ type: 'FB_LOGIN', token, user });
-        }
-        } else if (error) {
-        console.log('The login attempt was cancelled', error);
-        }
-    };
       
     return (
         <SafeArea>
@@ -77,9 +62,6 @@ const Welcome = ({navigation}) => {
                     </SocialIcon>
                     <SocialIcon onPress={handleGoogleLoginPress}>
                     <AntDesign name="google" size={34} color="white" />
-                    </SocialIcon>
-                    <SocialIcon onPress={handleAppleLoginPress}>
-                        <AntDesign name="apple1" size={34} color="white" />
                     </SocialIcon>
                 </SocialContainer>
             </Container>

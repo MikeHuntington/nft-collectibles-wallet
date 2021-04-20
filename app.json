@@ -40,6 +40,8 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "facebookAutoInitEnabled": true,
+    "facebookAutoLogAppEventsEnabled": true,
     "facebookScheme": "fb1075972036247109",
     "facebookAppId": "1075972036247109",
     "facebookDisplayName": "LootBox Wallet"
