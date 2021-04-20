@@ -10,7 +10,7 @@ import { Button } from 'react-native-elements'
 import { AntDesign } from '@expo/vector-icons'
 
 import * as Facebook from 'expo-facebook'
-const FACEBOOK_APP_ID = "fb1075972036247109"
+const FACEBOOK_APP_ID = "1075972036247109"
 
 
 const Welcome = ({navigation}) => {
@@ -58,10 +58,13 @@ const Welcome = ({navigation}) => {
 
                 <SocialContainer>
                     <SocialIcon onPress={handleFBLoginPress}>
-                    <AntDesign name="facebook-square" size={34} color="white" />
+                        <AntDesign name="facebook-square" size={34} color="white" />
                     </SocialIcon>
                     <SocialIcon onPress={handleGoogleLoginPress}>
-                    <AntDesign name="google" size={34} color="white" />
+                        <AntDesign name="google" size={34} color="white" />
+                    </SocialIcon>
+                    <SocialIcon onPress={handleAppleLoginPress}>
+                        <AntDesign name="apple1" size={34} color="white" />
                     </SocialIcon>
                 </SocialContainer>
             </Container>

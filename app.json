@@ -2,7 +2,8 @@
   "expo": {
     "name": "LootBox",
     "slug": "lootbox-wallet",
-    "version": "1.0.0",
+    "version": "0.0.1",
+    "privacy": "unlisted",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -18,6 +19,7 @@
     ],
     "ios": {
       "supportsTablet": true,
+      "buildNumber": "0.0.1",
       "bundleIdentifier": "network.gamepower.LootBox",
       "usesAppleSignIn": true,
       "infoPlist": {
@@ -37,11 +39,6 @@
         "backgroundColor": "#FFFFFF"
       }
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "facebookAutoInitEnabled": true,
-    "facebookAutoLogAppEventsEnabled": true,
     "facebookScheme": "fb1075972036247109",
     "facebookAppId": "1075972036247109",
     "facebookDisplayName": "LootBox Wallet"

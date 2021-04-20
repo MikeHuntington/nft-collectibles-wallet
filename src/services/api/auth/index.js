@@ -4,17 +4,15 @@ import * as AppleAuthentication from 'expo-apple-authentication'
 
 const GOOGLE_ANDROID_CLIENT_ID = "571002288984-kc2miucnquupq606p7qjcsch95vie0j9.apps.googleusercontent.com"
 const GOOGLE_IOS_CLIENT_ID = "571002288984-t4tv9boccu8vhdpr8se7khrf1vctrq5b.apps.googleusercontent.com"
-const FACEBOOK_APP_ID = "fb1075972036247109"
-const FACEBOOK_APP_NAME = "LootBox Wallet"
 
 export default {
   fbLogin: async () => {
     try {
-      //await Facebook.initializeAsync(FACEBOOK_APP_ID)
+      //await Facebook.initializeAsync({appId: FACEBOOK_APP_ID})
 
       const { token, type } = await Facebook.logInWithReadPermissionsAsync(
         {
-          permissions: ['public_profile'],
+          permissions: ['public_profile']
         }
       )
   
