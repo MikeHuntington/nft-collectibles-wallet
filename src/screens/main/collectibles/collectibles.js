@@ -48,7 +48,7 @@ const Collectibles = ({navigation, route}) => {
     }, [dispatch])
 
     return (
-        <Container>
+        <Container bounces={false}>
             <BackgroundImage source={{uri: route.params.item.image}}>
                 <GradientBackground>
                     <Gradient colors={['transparent', 'rgba(0,0,0,0.8)']}>
@@ -87,8 +87,9 @@ const SeriesInfoView = styled.View`
 const DetailsView = styled.View`
     flex: 1;
 `
-const Container = styled.View`
+const Container = styled.ScrollView`
     flex: 1;
+    background-color: ${constants.BACKGROUND_COLOR};
 `
 const BackgroundImage = styled(ImageBackground).attrs({
     imageStyle: {
@@ -97,7 +98,7 @@ const BackgroundImage = styled(ImageBackground).attrs({
     }
 })`
     justify-content: flex-end;
-    height: 350px;
+    height: 400px;
 `
 const GradientBackground = styled.View`
     flex: 1;
