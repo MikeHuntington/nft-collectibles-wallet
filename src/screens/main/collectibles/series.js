@@ -49,7 +49,7 @@ const Series = ({navigation}) => {
                     keyExtractor={item => item.id}
                     data={formatListData(series, NUMBER_OF_COLUMNS)}
                     renderItem={({ item }) => (
-                        <SeriesThumbnail item={item} onPress={() => { navigation.navigate(constants.CollectiblesScreens.Collectibles) }} />
+                        <SeriesThumbnail item={item} onPress={() => { navigation.navigate(constants.CollectiblesScreens.Collectibles, {item}) }} />
                     )}
                 />
 

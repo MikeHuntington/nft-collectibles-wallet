@@ -1,14 +1,17 @@
 import React, {useState, useEffect} from 'react'
-import { FlatList } from 'react-native'
+import { FlatList, ImageBackground } from 'react-native'
 import {useSelector, useDispatch} from 'react-redux'
 import styled from 'styled-components/native'
 import globalStyles from '../../../extra/styles/global'
+import { LinearGradient } from 'expo-linear-gradient';
+import { MaterialIcons } from '@expo/vector-icons'
 
 import * as constants from '../../../extra/constants'
 import { fetchCollectibles } from '../../../redux/actions'
 
 import BaseContainer from '../../../components/BaseContainer'
 import CollectibleThumbnail from '../../../components/CollectibleThumbnail'
+import Text from '../../../components/Text'
 import SeriesThumbnail from '../../../components/SeriesThumbnail'
 
 
@@ -36,7 +39,7 @@ const HeaderView = () => {
     )
 }
 
-const Collectibles = ({navigation}) => {
+const Collectibles = ({navigation, route}) => {
     const dispatch = useDispatch()
     const { collectibles } = useSelector((state) => state.collectibleReducer)
 
@@ -45,26 +48,22 @@ const Collectibles = ({navigation}) => {
     }, [dispatch])
 
     return (
-        <BaseContainer 
-            navigationMenuHandler={() => navigation.pop()} 
-            navigationTitle="Collectibles"
-            navigationLeftIconType="back"
-            navigationIcon={require('../../../../assets/LootBoxLogo-BoxWhite.png')}>
-
-                <CollectiblesList 
-                    ListHeaderComponent={HeaderView}
-                    contentContainerStyle={{paddingBottom: 40}}
-                    showsHorizontalScrollIndicator={false}
-                    numColumns={NUMBER_OF_COLUMNS}
-                    keyExtractor={item => item.id}
-                    data={formatListData(collectibles, NUMBER_OF_COLUMNS)}
-                    bounces={false}
-                    renderItem={({ item }) => (
-                        <CollectibleThumbnail item={item} onPress={() => { navigation.navigate(constants.CollectiblesScreens.Series) }} />
-                    )}
-                />
-
-        </BaseContainer>
+        <Container>
+            <BackgroundImage source={{uri: route.params.item.image}}>
+                <GradientBackground>
+                    <Gradient colors={['transparent', 'rgba(0,0,0,0.8)']}>
+                    <MaterialIcons  
+                        onPress={() => {navigation.pop()}}
+                        name={constants.BACK_ICON} 
+                        size={24} 
+                        style={{flex: 1, marginTop: 30, marginLeft: 15}}
+                        color="white" />
+                        <HeaderText header heavy color="#ffffff">{route.params.item.name}</HeaderText>
+                    </Gradient>
+                </GradientBackground>
+                
+            </BackgroundImage>
+        </Container>
     )
 }
 
@@ -87,4 +86,32 @@ const SeriesInfoView = styled.View`
 
 const DetailsView = styled.View`
     flex: 1;
+`
+const Container = styled.View`
+    flex: 1;
+`
+const BackgroundImage = styled(ImageBackground).attrs({
+    imageStyle: {
+        borderBottomRightRadius: 80,
+        resizeMode: 'cover'
+    }
+})`
+    justify-content: flex-end;
+    height: 350px;
+`
+const GradientBackground = styled.View`
+    flex: 1;
+    overflow: hidden;
+    border-bottom-right-radius: 80px;
+`
+
+const Gradient = styled(LinearGradient)`
+    flex: 1;
+    padding: 20px;
+    flex-direction: column;
+`
+
+const HeaderText = styled(Text)`
+    align-self: flex-start;
+    margin-left: 15px;
 `
