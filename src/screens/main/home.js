@@ -3,6 +3,7 @@ import { Animated, Dimensions, Image, View } from 'react-native'
 
 import styled from 'styled-components/native'
 import globalStyles from '../../extra/styles/global'
+import * as constants from '../../extra/constants'
 
 import Text from '../../components/Text'
 import BaseContainer from '../../components/BaseContainer'
@@ -43,22 +44,23 @@ const Home = ({navigation}) => {
         <BaseContainer 
             navigationMenuHandler={() => navigation.openDrawer()} 
             navigationTitle="Home" 
+            navigationLeftIconType="menu"
             navigationIcon={require('../../../assets/LootBoxLogo-BoxWhite.png')}>
             
 
             <ScrollView>
                 <ScrollHeader>
-                    <ListHeading large color="#f1461d">Hot Series 🔥</ListHeading>
+                    <ListHeading large color={constants.SECONDARY_COLOR}>Hot Series 🔥</ListHeading>
                     <FlatList 
                         showsHorizontalScrollIndicator={false}
                         contentContainerStyle={{paddingRight: 20, paddingLeft: 20, marginTop: 10}}
                         horizontal 
                         data={series}
-                        renderItem={({ item }) => (<SeriesTag color="#f1461d">{item.name}</SeriesTag>)}
+                        renderItem={({ item }) => (<SeriesTag textColor="white" color={constants.SECONDARY_COLOR}>{item.name}</SeriesTag>)}
                     />
                 </ScrollHeader>
                 <Content>
-                    <Title header>Discover</Title>
+                    <Title header color="silver">Discover</Title>
                     <ListHeading large heavy color="grey">Loot Drops 💎</ListHeading>
                     <Animated.FlatList 
                         contentContainerStyle={{paddingRight: 20, paddingLeft: 20, marginBottom: 20}}
@@ -137,7 +139,7 @@ const FlatList = styled.FlatList`
 
 const ScrollHeader = styled.View`
     padding: 30px 0 20px 0;
-    background-color: #2c2c5c;
+    background-color: ${constants.PRIMARY_COLOR};
     height: 190px;
     flex: 1;
 `
@@ -146,7 +148,7 @@ const Content = styled.View`
     margin-top: 10px;
     padding-top: 30px;
     padding-bottom: 100px;
-    background-color: white;
+    background-color: ${constants.BACKGROUND_COLOR};
     border-radius: 30px;
 `;
 

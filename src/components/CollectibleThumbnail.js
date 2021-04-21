@@ -30,9 +30,9 @@ export default SeriesThumbnail;
 
 const Container = styled.View`
   flex: 1;
-  padding: 10px;
-  padding-top: 10px;
-  padding-bottom: 20px;
+  padding: 3px;
+  padding-top: 3px;
+  padding-bottom: 10px;
 `
 
 const Thumbnail = styled.TouchableOpacity`

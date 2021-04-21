@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux'
 import styled from 'styled-components/native'
 
 import globalStyles from '../../extra/styles/global'
-import {AuthScreens} from '../../extra/constants'
+import * as constants from '../../extra/constants'
 import { fbLogin, googleLogin, appleLogin } from '../../redux/actions'
 
 import { Button } from 'react-native-elements'
@@ -103,7 +103,7 @@ const CreateWalletButton = styled(Button).attrs({
         fontSize: 16
     },
     buttonStyle: {
-        backgroundColor: "#2c2c5c",
+        backgroundColor: constants.PRIMARY_COLOR,
         height: 50,
         borderRadius: 6
     }
@@ -111,7 +111,7 @@ const CreateWalletButton = styled(Button).attrs({
 
 const RestoreWalletButton = styled(Button).attrs({
     titleStyle: {
-        color: "#2c2c5c",
+        color: constants.PRIMARY_COLOR,
         fontWeight: "600",
         fontSize: 16
     },
@@ -156,7 +156,7 @@ const Footer = styled.View`
     flex-direction: row;
     justify-content: center;
     align-items: flex-end;
-    background-color: #2c2c5c;
+    background-color: ${constants.PRIMARY_COLOR};
     position: absolute;
     padding: 0 70px 65px 70px;
     height: 250px;
@@ -185,5 +185,5 @@ const SocialIcon = styled.TouchableOpacity`
     height: 60px;
     margin: 10px;
     border-radius: 30px;
-    background-color: #404fa3;
+    background-color: ${constants.SECONDARY_COLOR};
 `

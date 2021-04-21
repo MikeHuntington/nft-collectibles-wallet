@@ -6,13 +6,14 @@
     "privacy": "unlisted",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "scheme": "lootboxwallet",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 30000
     },
     "assetBundlePatterns": [
       "**/*"
