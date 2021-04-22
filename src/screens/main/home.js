@@ -5,9 +5,7 @@ import styled from 'styled-components/native'
 import globalStyles from '../../extra/styles/global'
 import * as constants from '../../extra/constants'
 
-import Text from '../../components/Text'
-import BaseContainer from '../../components/BaseContainer'
-import SeriesTag from '../../components/SeriesTag'
+import {Text, BaseContainer, SeriesTag} from '../../components'
 
 const { width, height } = Dimensions.get('screen')
 const ITEM_WIDTH = 320

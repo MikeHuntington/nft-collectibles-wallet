@@ -7,8 +7,7 @@ import globalStyles from '../../../extra/styles/global'
 import * as constants from '../../../extra/constants'
 import { fetchSeries } from '../../../redux/actions'
 
-import BaseContainer from '../../../components/BaseContainer'
-import SeriesThumbnail from '../../../components/SeriesThumbnail'
+import {BaseContainer, SeriesThumbnail} from '../../../components'
 
 
 

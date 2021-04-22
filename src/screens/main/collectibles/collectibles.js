@@ -3,16 +3,12 @@ import { FlatList, ImageBackground } from 'react-native'
 import {useSelector, useDispatch} from 'react-redux'
 import styled from 'styled-components/native'
 import globalStyles from '../../../extra/styles/global'
-import { LinearGradient } from 'expo-linear-gradient';
-import { MaterialIcons } from '@expo/vector-icons'
+import { LinearGradient } from 'expo-linear-gradient'
 
 import * as constants from '../../../extra/constants'
 import { fetchCollectibles } from '../../../redux/actions'
 
-import BaseContainer from '../../../components/BaseContainer'
-import CollectibleThumbnail from '../../../components/CollectibleThumbnail'
-import Text from '../../../components/Text'
-import SeriesThumbnail from '../../../components/SeriesThumbnail'
+import {BaseContainer, CollectibleThumbnail, Text} from '../../../components'
 
 
 const NUMBER_OF_COLUMNS = 2
@@ -69,7 +65,6 @@ const Collectibles = ({navigation, route}) => {
                     renderItem={({ item }) => (
                         <CollectibleThumbnail item={item} onPress={() => { navigation.navigate(constants.CollectiblesScreens.Collectibles, {item}) }} />
                     )}
-                    onScroll={e => console.log(e.nativeEvent.contentOffset.y)}
                 />
 
         </BaseContainer>

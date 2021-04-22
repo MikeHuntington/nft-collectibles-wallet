@@ -5,11 +5,8 @@ import styled from 'styled-components/native'
 import globalStyles from '../../extra/styles/global'
 
 import * as constants from '../../extra/constants'
-import { fetchCollectibles } from '../../redux/actions'
 
-import Text from '../../components/Text'
-import Button from '../../components/Button'
-import BaseContainer from '../../components/BaseContainer'
+import {Text, Button, BaseContainer} from '../../components'
 import { BarCodeScanner } from 'expo-barcode-scanner'
 
 
@@ -31,11 +28,30 @@ const Scan = ({navigation}) => {
         alert(`Bar code with type ${type} and data ${data} has been scanned!`)
     };
 
-    if (hasPermission === null) {
-        return <Text>Requesting for camera permission</Text>
+    const RequestView = () => {
+        return (
+            <Container>
+                <Text>Requesting for camera permission</Text>
+            </Container>
+        )
     }
-    if (hasPermission === false) {
-        return <Text>No access to camera</Text>
+
+    const NoAccessView = () => {
+        return (
+            <Container>
+                <Text>No access to camera</Text>
+            </Container>
+        )
+    }
+
+    const ScannerView = () => {
+        return (
+            <BarCodeScanner
+                barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
+                onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+                style={StyleSheet.absoluteFillObject}
+            />
+        )
     }
 
     return (
@@ -45,11 +61,11 @@ const Scan = ({navigation}) => {
             navigationLeftIconType="menu"
             navigationIcon={require('../../../assets/LootBoxLogo-BoxWhite.png')}>
 
-            <BarCodeScanner
-                barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
-                onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-                style={StyleSheet.absoluteFillObject}
-            />
+            {(hasPermission === null) && RequestView() }
+
+            {(hasPermission === false) && NoAccessView() }
+
+            {(hasPermission === true) && ScannerView() }
 
             {scanned && <Button onPress={() => setScanned(false)}>Tap to Scan Again</Button>}
 
@@ -75,4 +91,11 @@ const InstructionView = styled.View`
     background-color: ${constants.PRIMARY_COLOR};
     justify-content: center;
     align-items: center;
+`
+
+const Container = styled.View`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: ${constants.BACKGROUND_LIGHT};
 `
