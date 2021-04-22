@@ -61,7 +61,7 @@ const Home = ({navigation}) => {
                 </ScrollHeader>
                 <Content>
                     <Title header color="silver">Discover</Title>
-                    <ListHeading large heavy color="grey">Loot Drops 💎</ListHeading>
+                    <ListHeading large heavy color="grey">Loot Drops ⚡</ListHeading>
                     <Animated.FlatList 
                         contentContainerStyle={{paddingRight: 20, paddingLeft: 20, marginBottom: 20}}
                         horizontal 

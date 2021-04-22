@@ -16,7 +16,7 @@ export default SeriesTag;
 
 const Tag = styled.View`
     border-radius: 20px;
-    background-color: ${props => props.color ?? "#ffffff"};
+    background-color: ${props => props.color ?? constants.BACKGROUND_LIGHT};
     height: 60px;
     width: 200px;
     flex: 1;

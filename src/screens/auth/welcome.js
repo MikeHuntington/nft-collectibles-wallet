@@ -85,7 +85,7 @@ const Container = styled.View`
     flex: 1;
     justify-content: flex-end;
     padding: 0 32px 32px 32px;
-    background-color: white;
+    background-color: ${constants.BACKGROUND_LIGHT};
     border-radius: 60px;
     margin: 100px 0 100px 0;
 `;

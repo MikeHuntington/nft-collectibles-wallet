@@ -29,16 +29,6 @@ const formatListData = (data, numColumns) => {
     return data
 }
 
-const HeaderView = () => {
-    
-    return (
-        <SeriesInfoView>
-            <SeriesThumbnail item={{name:"Test", image:"https://images.unsplash.com/photo-1618510050510-d0903984e131?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"}} onPress={() => { navigation.navigate(CollectiblesScreens.Series) }} />
-            <DetailsView></DetailsView>
-        </SeriesInfoView>
-    )
-}
-
 const Collectibles = ({navigation, route}) => {
     const dispatch = useDispatch()
     const { collectibles } = useSelector((state) => state.collectibleReducer)
@@ -47,23 +37,42 @@ const Collectibles = ({navigation, route}) => {
         dispatch(fetchCollectibles())
     }, [dispatch])
 
+    const HeaderView = (nav, item) => {
+    
+        return (
+            <Header>
+                <BackgroundAccent />
+                <BackgroundImage source={{uri: item.image}}>
+                    <GradientBackground>
+                        <Gradient colors={['transparent', 'rgba(0,0,0,0.8)']}>
+                            <HeaderText header heavy color="#ffffff">{item.name}</HeaderText>
+                        </Gradient>
+                    </GradientBackground>
+                </BackgroundImage>
+            </Header>
+        )
+    }
+
     return (
-        <Container bounces={false}>
-            <BackgroundImage source={{uri: route.params.item.image}}>
-                <GradientBackground>
-                    <Gradient colors={['transparent', 'rgba(0,0,0,0.8)']}>
-                    <MaterialIcons  
-                        onPress={() => {navigation.pop()}}
-                        name={constants.BACK_ICON} 
-                        size={24} 
-                        style={{flex: 1, marginTop: 30, marginLeft: 15}}
-                        color="white" />
-                        <HeaderText header heavy color="#ffffff">{route.params.item.name}</HeaderText>
-                    </Gradient>
-                </GradientBackground>
-                
-            </BackgroundImage>
-        </Container>
+        <BaseContainer 
+            navigationMenuHandler={() => navigation.pop()} 
+            navigationTitle={`My Items (${collectibles.length})`}
+            navigationLeftIconType="back"
+            navigationIcon={require('../../../../assets/LootBoxLogo-BoxWhite.png')}>
+                <CollectiblesList 
+                    ListHeaderComponent={HeaderView(navigation, route.params.item)}
+                    showsHorizontalScrollIndicator={false}
+                    bounces={true}
+                    numColumns={NUMBER_OF_COLUMNS}
+                    keyExtractor={item => item.id}
+                    data={formatListData([...collectibles], NUMBER_OF_COLUMNS)}
+                    renderItem={({ item }) => (
+                        <CollectibleThumbnail item={item} onPress={() => { navigation.navigate(constants.CollectiblesScreens.Collectibles, {item}) }} />
+                    )}
+                    onScroll={e => console.log(e.nativeEvent.contentOffset.y)}
+                />
+
+        </BaseContainer>
     )
 }
 
@@ -71,32 +80,27 @@ export default Collectibles;
 
 
 /* Styles */
+
 const CollectiblesList = styled(FlatList)`
     flex: 1;
     background-color: ${constants.BACKGROUND_COLOR};
-    border-radius: 30px;
 `
 
-const SeriesInfoView = styled.View`
-    flex: 1;
-    flex-direction: row;
-    height: 200;
+const BackgroundAccent = styled.View`
+    height: 430px;
     background-color: ${constants.PRIMARY_COLOR};
+    border-bottom-right-radius: 80px;
 `
 
-const DetailsView = styled.View`
-    flex: 1;
-`
-const Container = styled.ScrollView`
-    flex: 1;
-    background-color: ${constants.BACKGROUND_COLOR};
-`
 const BackgroundImage = styled(ImageBackground).attrs({
     imageStyle: {
         borderBottomRightRadius: 80,
         resizeMode: 'cover'
     }
 })`
+    position: absolute;
+    right: 0;
+    left: 0;
     justify-content: flex-end;
     height: 400px;
 `
@@ -109,10 +113,13 @@ const GradientBackground = styled.View`
 const Gradient = styled(LinearGradient)`
     flex: 1;
     padding: 20px;
-    flex-direction: column;
+    flex-direction: row;
+`
+const Header = styled.View`
+    height: 460px;
 `
 
 const HeaderText = styled(Text)`
-    align-self: flex-start;
-    margin-left: 15px;
+    align-self: flex-end;
+    margin-left: 0px;
 `

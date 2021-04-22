@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react'
-import { FlatList, Text, StyleSheet } from 'react-native'
+import { FlatList, StyleSheet } from 'react-native'
 import {useSelector, useDispatch} from 'react-redux'
 import styled from 'styled-components/native'
 import globalStyles from '../../extra/styles/global'
 
-import {CollectiblesScreens} from '../../extra/constants'
+import * as constants from '../../extra/constants'
 import { fetchCollectibles } from '../../redux/actions'
 
-//import Text from '../../components/Text'
+import Text from '../../components/Text'
 import Button from '../../components/Button'
 import BaseContainer from '../../components/BaseContainer'
 import { BarCodeScanner } from 'expo-barcode-scanner'
@@ -53,6 +53,10 @@ const Scan = ({navigation}) => {
 
             {scanned && <Button onPress={() => setScanned(false)}>Tap to Scan Again</Button>}
 
+            <InstructionView>
+                <Text center color="white">Point your camera towards a LootBox QR Code</Text>
+            </InstructionView>
+
         </BaseContainer>
     )
 }
@@ -61,3 +65,14 @@ export default Scan
 
 
 /* Styles */
+const InstructionView = styled.View`
+    position: absolute;
+    border-radius: 30px;
+    height: 70px;
+    bottom: 30px;
+    left: 10px;
+    right: 10px;
+    background-color: ${constants.PRIMARY_COLOR};
+    justify-content: center;
+    align-items: center;
+`

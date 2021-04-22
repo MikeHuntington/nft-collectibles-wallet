@@ -27,3 +27,4 @@ export const MENU_ICON = "menu-open"
 export const PRIMARY_COLOR = "#1c2732" //2c2c5c
 export const SECONDARY_COLOR = "red" //f1461d
 export const BACKGROUND_COLOR = "#2b3240" //ffffff
+export const BACKGROUND_LIGHT = "#dcdcdc"
