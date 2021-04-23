@@ -27,7 +27,7 @@ const formatListData = (data, numColumns) => {
 
 const Collectibles = ({navigation, route}) => {
     const dispatch = useDispatch()
-    const { collectibles } = useSelector((state) => state.collectibleReducer)
+    const { collectibles } = useSelector((state) => state.nftReducer)
 
     useEffect(() => {
         dispatch(fetchCollectibles())

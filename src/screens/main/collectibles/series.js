@@ -28,7 +28,7 @@ const formatListData = (data, numColumns) => {
 
 const Series = ({navigation}) => {
     const dispatch = useDispatch()
-    const { series } = useSelector((state) => state.collectibleReducer)
+    const { series } = useSelector((state) => state.nftReducer)
 
     useEffect(() => {
         dispatch(fetchSeries())

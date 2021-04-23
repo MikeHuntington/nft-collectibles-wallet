@@ -3,10 +3,11 @@ import { FETCH_COLLECTIBLES_SUCCESS, FETCH_COLLECTIBLES_FAILURE, FETCH_SERIES_SU
 
 const initialState = {
   series: [],
-  collectibles: []
+  collectibles: [],
+  pendingClaims: []
 };
 
-export function collectibleReducer(state = initialState, action) {
+export function nftReducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_COLLECTIBLES_SUCCESS: {
       return {

@@ -1,11 +1,11 @@
 import auth from './auth.middleware'
-import collectible from './collectible.middleware'
+import nft from './nft.middleware'
 import keyring from './keyring.middleware'
 import provider from './provider.middleware'
 
 export default [
     ...auth,
-    ...collectible,
+    ...nft,
     ...keyring,
     ...provider
 ]

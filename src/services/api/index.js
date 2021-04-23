@@ -1,9 +1,9 @@
 import auth from './auth'
-import collectible from './collectible'
+import nft from './nft'
 import keyring from './keyring'
 
 export default {
     auth,
-    collectible,
+    nft,
     keyring,
 }

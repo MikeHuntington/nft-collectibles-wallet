@@ -11,6 +11,7 @@ import * as constants from '../../../extra/constants'
 
 import {Text, Button, BaseContainer} from '../../../components'
 import { BarCodeScanner } from 'expo-barcode-scanner'
+import { claimNFT } from '../../../redux/actions/nft.actions'
 
 
 
@@ -26,9 +27,9 @@ const Scan = ({navigation}) => {
         })()
     }, [dispatch])
 
-    const handleBarCodeScanned = ({ type, data }) => {
+    const handleBarCodeScanned = ({ data }) => {
         setScanned(true)
-        alert(`Bar code with type ${type} and data ${data} has been scanned!`)
+        dispatch(claimNFT(data));
     };
 
     const RequestView = () => {

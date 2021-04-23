@@ -19,8 +19,20 @@ const collectibleData = [
     {id:"5", name:"hero", image:"https://images.unsplash.com/photo-1501432377862-3d0432b87a14?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"}
 ]
 
+const scanData = {
+    provider: {
+        id: 'network.gamepower.Wallet',
+        name: 'GamePower Network',
+        endpoints: ['gamepower.io']
+    },
+    nft: {
+        id: 'de4558fbap89s65dfjb430390345bjsass54ee'
+    }
+}
+
 export const testData = {
     phraseData,
     collectibleData,
+    scanData,
     seriesData
 }
