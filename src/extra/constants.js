@@ -19,6 +19,11 @@ export const CollectiblesScreens = {
     Series: 'Series'
 }
 
+export const ScannerScreens = {
+    Scan: 'Scan',
+    Review: 'Review'
+}
+
 // UI
 export const BACK_ICON = "arrow-back-ios"
 export const MENU_ICON = "menu-open"

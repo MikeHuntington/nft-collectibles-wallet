@@ -1,12 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import { FlatList, StyleSheet } from 'react-native'
 import {useSelector, useDispatch} from 'react-redux'
+
 import styled from 'styled-components/native'
-import globalStyles from '../../extra/styles/global'
+import globalStyles from '../../../extra/styles/global'
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
-import * as constants from '../../extra/constants'
+import * as constants from '../../../extra/constants'
 
-import {Text, Button, BaseContainer} from '../../components'
+import {Text, Button, BaseContainer} from '../../../components'
 import { BarCodeScanner } from 'expo-barcode-scanner'
 
 
@@ -54,24 +57,31 @@ const Scan = ({navigation}) => {
         )
     }
 
+
     return (
         <BaseContainer 
             navigationMenuHandler={() => navigation.openDrawer()} 
             navigationTitle="QR Scanner"
             navigationLeftIconType="menu"
-            navigationIcon={require('../../../assets/LootBoxLogo-BoxWhite.png')}>
+            navigationIcon={require('../../../../assets/LootBoxLogo-BoxWhite.png')}>
 
             {(hasPermission === null) && RequestView() }
 
             {(hasPermission === false) && NoAccessView() }
 
-            {(hasPermission === true) && ScannerView() }
+            {(hasPermission === true && scanned === false) && ScannerView() }
 
-            {scanned && <Button onPress={() => setScanned(false)}>Tap to Scan Again</Button>}
+            {(hasPermission === true && scanned === false) && 
+                <ScanHelperView>
+                  <Ionicons name="ios-scan-outline" size={400} color={constants.BACKGROUND_LIGHT} />
+                </ScanHelperView>
+            }
 
-            <InstructionView>
-                <Text center color="white">Point your camera towards a LootBox QR Code</Text>
-            </InstructionView>
+            {(hasPermission === true && scanned === false) && 
+                <InstructionView>
+                    <Text center color="white">Point your camera towards a LootBox QR Code</Text>
+                </InstructionView>
+            }
 
         </BaseContainer>
     )
@@ -98,4 +108,12 @@ const Container = styled.View`
     justify-content: center;
     align-items: center;
     background-color: ${constants.BACKGROUND_LIGHT};
+`
+
+const ScanHelperView = styled.View`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    padding-left: 20px;
 `

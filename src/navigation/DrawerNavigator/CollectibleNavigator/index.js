@@ -8,7 +8,6 @@ const {Navigator, Screen} = createStackNavigator();
 export const CollectiblesNavigator = () => {
     return (
         <Navigator 
-            drawerContent={(props) => <Sidebar {...props} />}
             initialRouteName={CollectiblesScreens.Series} 
             screenOptions={{headerShown: false, animationEnabled: true}}>
                 <Screen name={CollectiblesScreens.Collectibles} component={Collectibles} />

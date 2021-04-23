@@ -1,7 +1,11 @@
-export const FETCH_COLLECTIBLES               = "FETCH_COLLECTIBLES"
-export const FETCH_COLLECTIBLES_SUCCESS       = "FETCH_COLLECTIBLES_SUCCESS"
-export const FETCH_COLLECTIBLES_FAILURE       = "FETCH_COLLECTIBLES_FAILURE"
+export const CLAIM_NFT                        = "nft:FETCH_COLLECTIBLES"
+export const CLAIM_NFT_SUCCESS                = "nft:FETCH_COLLECTIBLES_SUCCESS"
+export const CLAIM_NFT_FAILURE                = "nft:FETCH_COLLECTIBLES_FAILURE"
 
-export const FETCH_SERIES                     = "FETCH_SERIES"
-export const FETCH_SERIES_SUCCESS             = "FETCH_SERIES_SUCCESS"
-export const FETCH_SERIES_FAILURE             = "FETCH_SERIES_FAILURE"
+export const FETCH_COLLECTIBLES               = "nft:FETCH_COLLECTIBLES"
+export const FETCH_COLLECTIBLES_SUCCESS       = "nft:FETCH_COLLECTIBLES_SUCCESS"
+export const FETCH_COLLECTIBLES_FAILURE       = "nft:FETCH_COLLECTIBLES_FAILURE"
+
+export const FETCH_SERIES                     = "nft:FETCH_SERIES"
+export const FETCH_SERIES_SUCCESS             = "nft:FETCH_SERIES_SUCCESS"
+export const FETCH_SERIES_FAILURE             = "nft:FETCH_SERIES_FAILURE"
