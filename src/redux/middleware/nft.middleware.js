@@ -11,7 +11,8 @@ const claimNFTFlow = ({api}) => ({getState, dispatch}) => next => async (action)
         // Add pending NFT
         getState().nftReducer.pendingClaims.push(claim)
         // Connect to provider
-        dispatch(actions.connectProvider(claim.provider))
+        //dispatch(actions.connectProvider(claim.provider))
+        dispatch(actions.phraseRequest({type: types.GENERATE_PHRASE}))
       } catch (error) {
         console.log(error)
       }
