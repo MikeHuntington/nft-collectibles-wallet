@@ -30,9 +30,14 @@ const scanData = {
     }
 }
 
+const nftData = {
+    id: 'de4558fbap89s65dfjb430390345bjsass54ee'
+}
+
 export const testData = {
     phraseData,
     collectibleData,
+    nftData,
     scanData,
     seriesData
 }

@@ -1,15 +1,14 @@
 import React, {useState, useEffect} from 'react'
-import { FlatList, StyleSheet } from 'react-native'
-import {useSelector, useDispatch} from 'react-redux'
+import { StyleSheet } from 'react-native'
+import {useDispatch} from 'react-redux'
 
 import styled from 'styled-components/native'
 import globalStyles from '../../../extra/styles/global'
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
 import * as constants from '../../../extra/constants'
 
-import {Text, Button, BaseContainer} from '../../../components'
+import {Text, BaseContainer} from '../../../components'
 import { BarCodeScanner } from 'expo-barcode-scanner'
 import { claimNFT } from '../../../redux/actions/nft.actions'
 

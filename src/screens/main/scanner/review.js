@@ -13,9 +13,9 @@ const Review = ({navigation}) => {
 
     return (
         <BaseContainer 
-            navigationMenuHandler={() => navigation.openDrawer()} 
+            navigationMenuHandler={() => navigation.pop()} 
             navigationTitle="QR Scanner"
-            navigationLeftIconType="menu"
+            navigationLeftIconType="back"
             navigationIcon={require('../../../../assets/LootBoxLogo-BoxWhite.png')}>
 
             <Container>
