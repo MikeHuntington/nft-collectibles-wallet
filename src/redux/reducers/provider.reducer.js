@@ -7,7 +7,12 @@ import {
 
 
 const initialState = {
-  providers: []
+  providers: [],
+
+  connection: {
+    provider: null,
+    connection: null
+  }
 };
 
 export function providerReducer(state = initialState, action) {
@@ -16,6 +21,16 @@ export function providerReducer(state = initialState, action) {
       return {
         ...state,
         providers: [ ...state.providers, action.payload]
+      }
+    }
+
+    case CONNECT_PROVIDER_SUCCESS: {
+      return {
+        ...state,
+        connection: {
+          provider: action.payload.provider,
+          connection: action.payload.connection
+        }
       }
     }
     default:

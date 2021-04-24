@@ -48,6 +48,7 @@ const Welcome = ({navigation}) => {
                     <AdvancedUserButton
                         title="Advanced Users" 
                         type="clear"
+                        onPress={() => navigation.navigate(constants.AuthScreens.CreatePassword)}
                     />
                 </FooterContainer>
             </Footer>

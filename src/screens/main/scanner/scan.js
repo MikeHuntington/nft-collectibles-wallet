@@ -25,11 +25,20 @@ const Scan = ({navigation}) => {
             const { status } = await BarCodeScanner.requestPermissionsAsync()
             setHasPermission(status === 'granted')
         })()
+
+        const unsubscribe = navigation.addListener('focus', () => {
+            // The screen is focused
+            setScanned(false)
+        });
+    
+        // Return the function to unsubscribe from the event so it gets removed on unmount
+        return unsubscribe
     }, [dispatch])
 
     const handleBarCodeScanned = ({ data }) => {
         setScanned(true)
-        dispatch(claimNFT(data));
+        dispatch(claimNFT(data))
+        navigation.navigate(constants.ScannerScreens.Review)
     };
 
     const RequestView = () => {
@@ -70,15 +79,15 @@ const Scan = ({navigation}) => {
 
             {(hasPermission === false) && NoAccessView() }
 
-            {(hasPermission === true && scanned === false) && ScannerView() }
+            {(hasPermission === true) && ScannerView() }
 
-            {(hasPermission === true && scanned === false) && 
+            {(hasPermission === true) && 
                 <ScanHelperView>
                   <Ionicons name="ios-scan-outline" size={400} color={constants.BACKGROUND_LIGHT} />
                 </ScanHelperView>
             }
 
-            {(hasPermission === true && scanned === false) && 
+            {(hasPermission === true) && 
                 <InstructionView>
                     <Text center color="white">Point your camera towards a LootBox QR Code</Text>
                 </InstructionView>
