@@ -2,7 +2,7 @@ import { testData } from '../../../extra/testData.extra'
 
 export default {
   claimNFT: async () => {
-    
+    return testData.nftData
   },
 
   getClaimData: () => {

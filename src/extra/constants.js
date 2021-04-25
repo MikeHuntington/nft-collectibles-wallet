@@ -8,7 +8,7 @@ export const AuthScreens = {
 }
 
 export const MainScreens = {
-    Home: 'Home',
+    Drops: 'Drops',
     Scan: 'Scan',
     Marketplace: 'Marketplace',
     Settings: 'Settings'

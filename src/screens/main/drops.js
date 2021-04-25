@@ -35,13 +35,13 @@ const drops = images.map((image, index) => ({
 }));
 
 
-const Home = ({navigation}) => {
+const Drops = ({navigation}) => {
     const scrollX = useRef(new Animated.Value(0)).current;
 
     return (
         <BaseContainer 
             navigationMenuHandler={() => navigation.openDrawer()} 
-            navigationTitle="Home" 
+            navigationTitle="Drops 🔥" 
             navigationLeftIconType="menu"
             navigationIcon={require('../../../assets/LootBoxLogo-BoxWhite.png')}>
             
@@ -59,7 +59,7 @@ const Home = ({navigation}) => {
                 </ScrollHeader>
                 <Content>
                     <Title header color="silver">Discover</Title>
-                    <ListHeading large heavy color="grey">Loot Drops ⚡</ListHeading>
+                    <ListHeading large heavy color="grey">Featured Drops ⚡</ListHeading>
                     <Animated.FlatList 
                         contentContainerStyle={{paddingRight: 20, paddingLeft: 20, marginBottom: 20}}
                         horizontal 
@@ -123,7 +123,7 @@ const Home = ({navigation}) => {
     )
 }
 
-export default Home;
+export default Drops;
 
 
 /* Styles */

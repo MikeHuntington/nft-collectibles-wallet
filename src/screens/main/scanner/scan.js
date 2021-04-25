@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useCallback} from 'react'
 import { StyleSheet } from 'react-native'
 import {useDispatch} from 'react-redux'
 
@@ -7,10 +7,10 @@ import globalStyles from '../../../extra/styles/global'
 import { Ionicons } from '@expo/vector-icons';
 
 import * as constants from '../../../extra/constants'
+import useEventListener from '../../../extra/util/useEventListener'
 
 import {Text, BaseContainer} from '../../../components'
 import { BarCodeScanner } from 'expo-barcode-scanner'
-import { claimNFT } from '../../../redux/actions/nft.actions'
 
 
 
@@ -18,26 +18,35 @@ const Scan = ({navigation}) => {
     const dispatch = useDispatch()
     const [hasPermission, setHasPermission] = useState(null)
     const [scanned, setScanned] = useState(false)
+    const [cameraEnabled, setCameraEnabled] = useState(false)
 
     useEffect(() => {
         (async () => {
             const { status } = await BarCodeScanner.requestPermissionsAsync()
             setHasPermission(status === 'granted')
         })()
-
-        const unsubscribe = navigation.addListener('focus', () => {
-            // The screen is focused
-            setScanned(false)
-        });
-    
-        // Return the function to unsubscribe from the event so it gets removed on unmount
-        return unsubscribe
     }, [dispatch])
+
+    const blurHandler = useCallback(
+        () => {
+            setCameraEnabled(false)
+        }
+    )
+
+    const focusHandler = useCallback(
+        () => {
+            setScanned(false)
+            setCameraEnabled(true)
+        }
+    )
+
+    // Events
+    useEventListener('blur', blurHandler, navigation)
+    useEventListener('focus', focusHandler, navigation)
 
     const handleBarCodeScanned = ({ data }) => {
         setScanned(true)
-        dispatch(claimNFT(data))
-        navigation.navigate(constants.ScannerScreens.Review)
+        navigation.navigate(constants.ScannerScreens.Review, {claim:data})
     };
 
     const RequestView = () => {
@@ -70,7 +79,7 @@ const Scan = ({navigation}) => {
     return (
         <BaseContainer 
             navigationMenuHandler={() => navigation.openDrawer()} 
-            navigationTitle="QR Scanner"
+            navigationTitle="Scan Loot"
             navigationLeftIconType="menu"
             navigationIcon={require('../../../../assets/LootBoxLogo-BoxWhite.png')}>
 
@@ -78,7 +87,7 @@ const Scan = ({navigation}) => {
 
             {(hasPermission === false) && NoAccessView() }
 
-            {(hasPermission === true) && ScannerView() }
+            {(hasPermission === true && cameraEnabled) && ScannerView() }
 
             {(hasPermission === true) && 
                 <ScanHelperView>

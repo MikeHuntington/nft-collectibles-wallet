@@ -23,15 +23,75 @@ const scanData = {
     provider: {
         id: 'network.gamepower.Wallet',
         name: 'GamePower Network',
-        endpoints: ['gamepower.io']
+        endpoints: ['gamepower.io'],
+        standard: 'orml',
+        module: 'ormlNFT'
     },
     nft: {
         id: 'de4558fbap89s65dfjb430390345bjsass54ee'
     }
 }
+//lootboxwallet://claim;pid:network.gamepower.Wallet;name:GamePower Network;enpoints:gamepower.io|gamepower.network;standard:orml;module:ormlNFT;nft:de4558fbap89s65dfjb430390345bjsass54ee
 
 const nftData = {
-    id: 'de4558fbap89s65dfjb430390345bjsass54ee'
+    collection: '0ahhadf874a77b-APPL',
+    name: 'Golden Skull',
+    instance: 'Dragon_0ahhadf874a77b-APPL',
+    transferable: 1,
+    sn: '00000000001',
+    metadata: {
+        title: 'Golden Skull',
+        name: 'Golden Skull',
+        type: 'object',
+        external_link: 'https://lootbox.gamepower.network/',
+        image: 'https://images.unsplash.com/photo-1545062990-4a95e8e4b96d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80', //350 x 350
+        description: "A photo of an apple",
+        attributes: [
+            {
+                trait_type: "Creator",
+                value: "GamePower"
+            },
+            {
+                trait: "health",
+                value: 20
+            }
+        ],
+        properties: {
+            name: {
+                type: "string",
+                description: "Apple"
+            },
+            description: {
+                type: "string",
+                description: "Just an Apple"
+            },
+            preview_media_file: {
+                type: "string",
+                description: "https://ipfsgateway.makersplace.com/ipfs/QmZ15eQX8FPjfrtdX3QYbrhZxJpbLpvDpsgb2p3VEH8Bqq"
+            },
+            preview_media_file_type: {
+                type: "string",
+                description: "jpg"
+            },
+            created_at: {
+                type: "datetime",
+                description: "2021-02-16T00:07:31.674688+00:00"
+            },
+            total_supply: {
+                type: "int",
+                description: 1
+            },
+            raw_media_file: {
+                type: "string",
+                description: "https://ipfsgateway.makersplace.com/ipfs/QmZ15eQX8FPjfrtdX3QYbrhZxJpbLpvDpsgb2p3VEH8Bqq"
+            }
+        }
+    },
+    data: {
+        "protocol": "https",
+        "data": "http://image-goes-here.jpg",
+        "type": "image/png"
+    }
 }
 
 export const testData = {

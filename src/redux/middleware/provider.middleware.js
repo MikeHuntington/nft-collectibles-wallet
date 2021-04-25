@@ -25,8 +25,6 @@ const connectProviderFlow = () => ({getState, dispatch}) => next => async (actio
         // check if we have an active connection to the provider
         const { provider } = getState().providerReducer.connection;
 
-        console.log(provider);
-
         // if we don't have a connection, let's connect
         dispatch(actions.apiRequest({type: CONNECT_PROVIDER, payload: action.payload}))
       } catch (error) {
@@ -41,7 +39,8 @@ const connectProviderSuccessFlow = () => ({dispatch}) => next => async (action) 
 
   if (action.type === types.CONNECT_PROVIDER_SUCCESS) {
       try {
-        //console.log("app:CONNECT PROVIDER SUCCESS: ", action.payload)
+        //TODO: update UI to show connected to provider
+        //console.log("app:CONNECT PROVIDER SUCCESS: ", action.payload.provider)
       } catch (error) {
         dispatch(actions.connectProviderFailure(error))
       }

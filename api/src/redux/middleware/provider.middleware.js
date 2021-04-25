@@ -15,6 +15,7 @@ const connectProviderFlow = ({api}) => ({dispatch}) => next => async (action) =>
               connection
             }
           }
+          dispatch(actions.connectProviderSuccess(result.payload))
           dispatch(actions.sendResults(result))
         } catch (error) {
             //dispatch(actions.connectProviderFailure(error));

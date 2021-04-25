@@ -2,7 +2,10 @@ import { CONNECT_PROVIDER_SUCCESS } from '../types';
 
 
 const initialState = {
-  connection: null
+  connection: {
+    connection: null,
+    provider: null
+  }
 };
 
 export function providerReducer(state = initialState, action) {

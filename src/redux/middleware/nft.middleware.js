@@ -8,21 +8,40 @@ const claimNFTFlow = ({api}) => ({getState, dispatch}) => next => async (action)
 
   if (action.type === types.CLAIM_NFT) {
       try {
-        // Parse claim data
-        const claim = api.nft.getClaimData(action.payload)
+        let claim = action.payload;
 
-        // Add pending NFT
-        // api.nft.addPendingClaim(claim)
-        getState().nftReducer.pendingClaims.push(claim) //temp
+        if(!action.isPending) {
+          // Parse claim data
+          claim = api.nft.getClaimData(action.payload)
+        }
 
         // Connect to provider if it currently isn't active
         // check if we have an active connection to the provider
         const { provider } = getState().providerReducer.connection;
-        if(claim.provider.id === provider.id) {
-          dispatch(actions.apiRequest({type: CLAIM_NFT, payload: claim}))
+        if(provider && claim.provider.id === provider.id) {
+          //Production: dispatch(actions.apiRequest({type: CLAIM_NFT, payload: claim}))
+          //Testing:
+          const nft = await api.nft.claimNFT()
+          dispatch(actions.claimNFTSuccess(nft))
         } else {
+          // Need to connect, add NFT to pending
+          getState().nftReducer.pendingClaims.push(claim)
+          // connect to provider
           dispatch(actions.connectProvider(claim.provider))
         }
+      } catch (error) {
+        console.log(error)
+      }
+  }
+}
+
+const claimPendingNFTFlow = ({api}) => ({getState, dispatch}) => next => async (action) => {
+
+  next(action);
+
+  if (action.type === types.CLAIM_PENDING_NFT) {
+      try {
+        dispatch(actions.claimNFT(getState().nftReducer.pendingClaims.pop(), true))
       } catch (error) {
         console.log(error)
       }
@@ -59,6 +78,7 @@ const fetchSeriesFlow = ({api}) => ({getState, dispatch}) => next => async (acti
 
 export default [
     claimNFTFlow,
+    claimPendingNFTFlow,
     fetchCollectiblesFlow,
     fetchSeriesFlow
 ]
