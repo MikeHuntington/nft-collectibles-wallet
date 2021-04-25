@@ -1,3 +1,5 @@
+import firebase from "firebase/app";
+import "firebase/auth";
 import * as Facebook from 'expo-facebook'
 import * as Google from 'expo-google-app-auth'
 import * as AppleAuthentication from 'expo-apple-authentication'
@@ -15,7 +17,29 @@ export default {
           permissions: ['public_profile']
         }
       )
-  
+
+      console.log("FACEBOOK LOGIN: ", token)
+
+      // Build Firebase credential with the Facebook access token.
+      const credential = firebase.auth.FacebookAuthProvider.credential(token);
+
+      // Listen for authentication state to change.
+      firebase.auth().onAuthStateChanged(user => {
+        if (user != null) {
+          return { type, token, user }
+        }
+      });
+
+
+      firebase
+        .auth()
+        .signInWithCredential(credential)
+        .catch(error => {
+          // Handle Errors here.
+          console.log("FACEBOOK FIREBASE: ", error)
+        });
+      
+      /*
       // GET USER DATA FROM FB API
       const response = await fetch(
         `https://graph.facebook.com/me?access_token=${token}`
@@ -34,6 +58,7 @@ export default {
       }
   
       return { type, token, user: userObject }
+      */
     } catch (e) {
       return { error: e }
     }
