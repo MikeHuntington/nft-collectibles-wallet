@@ -4,12 +4,13 @@ import styled from 'styled-components/native'
 
 import globalStyles from '../../extra/styles/global'
 import * as constants from '../../extra/constants'
-import { fbLogin, googleLogin, appleLogin } from '../../redux/actions'
+import { fbLogin, loginSuccess, googleLogin, appleLogin } from '../../redux/actions'
 
 import { Button } from 'react-native-elements'
 import { AntDesign } from '@expo/vector-icons'
 
 import * as Facebook from 'expo-facebook'
+import * as firebase from 'firebase';
 const FACEBOOK_APP_ID = "1075972036247109"
 
 
@@ -26,6 +27,13 @@ const Welcome = ({navigation}) => {
 
     useEffect(() => {
         initSocialLogin()
+
+        // Listen for authentication state to change.
+        firebase.auth().onAuthStateChanged(user => {
+            if (user != null) {
+                dispatch(loginSuccess({token:'44345534', user: user.uid}));
+            }
+        });
     }, [])
 
     const handleFBLoginPress = async () => {

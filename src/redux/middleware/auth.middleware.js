@@ -7,10 +7,9 @@ const facebookLoginFlow = ({api}) => ({getState, dispatch}) => next => async (ac
 
     if (action.type === types.FACEBOOK_LOGIN) {
         try {
-          const result = await api.auth.fbLogin()
-          dispatch(actions.fbLoginSuccess(result));
+          api.auth.fbLogin()
         } catch (error) {
-          console.log(error)
+          dispatch(actions.loginFailure(error));
         }
     }
 }
@@ -22,9 +21,9 @@ const googleLoginFlow = ({api}) => ({getState, dispatch}) => next => async (acti
   if (action.type === types.GOOGLE_LOGIN) {
       try {
         const result = await api.auth.googleLogin()
-        dispatch(actions.fbLoginSuccess(result));
+        dispatch(actions.loginSuccess(result));
       } catch (error) {
-        console.log(error)
+        dispatch(actions.loginFailure(error));
       }
   }
 }
@@ -37,9 +36,9 @@ const appleLoginFlow = ({api}) => ({getState, dispatch}) => next => async (actio
       try {
         const result = await api.auth.appleLogin()
         console.log(result);
-        dispatch(actions.appleLoginSuccess(result));
+        dispatch(actions.loginSuccess(result));
       } catch (error) {
-        console.log(error)
+        dispatch(actions.loginFailure(error));
       }
   }
 }
