@@ -13,6 +13,9 @@ import * as Facebook from 'expo-facebook'
 import * as firebase from 'firebase';
 const FACEBOOK_APP_ID = "1075972036247109"
 
+// test data
+import { testData } from '../../extra/testData.extra'
+
 
 const Welcome = ({navigation}) => {
     const dispatch = useDispatch()
@@ -31,21 +34,25 @@ const Welcome = ({navigation}) => {
         // Listen for authentication state to change.
         firebase.auth().onAuthStateChanged(user => {
             if (user != null) {
-                dispatch(loginSuccess({token:'44345534', user: user.uid}));
+                dispatch(loginSuccess({token:user.stsTokenManager, user}));
             }
         });
     }, [])
 
-    const handleFBLoginPress = async () => {
+    const handleFBLoginPress = () => {
         dispatch(fbLogin());
     }
 
-    const handleGoogleLoginPress = async () => {
+    const handleGoogleLoginPress = () => {
         dispatch(googleLogin());
     }
 
-    const handleAppleLoginPress = async () => {
+    const handleAppleLoginPress = () => {
         dispatch(appleLogin());
+    }
+
+    const handleAdvancedUser = () => {
+        dispatch(loginSuccess({token:testData.userData.stsTokenManager, user: testData.userData}));
     }
       
     return (
@@ -56,7 +63,7 @@ const Welcome = ({navigation}) => {
                     <AdvancedUserButton
                         title="Advanced Users" 
                         type="clear"
-                        onPress={() => navigation.navigate(constants.AuthScreens.CreatePassword)}
+                        onPress={handleAdvancedUser}
                     />
                 </FooterContainer>
             </Footer>

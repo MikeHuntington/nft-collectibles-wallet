@@ -94,10 +94,47 @@ const nftData = {
     }
 }
 
+const userData = {
+    "apiKey": "AIzaSyADkf-0C86lLa6b1wxcShYhiSpdNLO5Y9w",
+    "appName": "[DEFAULT]",
+    "authDomain": "lootbox-wallet.firebaseapp.com",
+    "createdAt": "1619416950630",
+    "displayName": null,
+    "email": "mv9btxyc2n@privaterelay.appleid.com",
+    "emailVerified": true,
+    "isAnonymous": false,
+    "lastLoginAt": "1619729187609",
+    "multiFactor": {
+        "enrolledFactors": [],
+    },
+    "phoneNumber": null,
+    "photoURL": null,
+    "providerData": [
+        {
+            "displayName": null,
+            "email": "mv9btxyc2n@privaterelay.appleid.com",
+            "phoneNumber": null,
+            "photoURL": null,
+            "providerId": "apple.com",
+            "uid": "001630.c5f65243e6234b34b258b35ecb8a8c1f.0029",
+        },
+    ],
+    "redirectEventId": null,
+    "stsTokenManager": {
+        "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbG9vdGJveC13YWxsZXQiLCJhdWQiOiJsb290Ym94LXdhbGxldCIsImF1dGhfdGltZSI6MTYxOTcyOTE4NywidXNlcl9pZCI6IkJ0bFRNOGl3Vm5PSHRlM3BpVk05aWFDRjlRYjIiLCJzdWIiOiJCdGxUTThpd1ZuT0h0ZTNwaVZNOWlhQ0Y5UWIyIiwiaWF0IjoxNjE5NzI5MTg3LCJleHAiOjE2MTk3MzI3ODcsImVtYWlsIjoibXY5YnR4eWMybkBwcml2YXRlcmVsYXkuYXBwbGVpZC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJhcHBsZS5jb20iOlsiMDAxNjMwLmM1ZjY1MjQzZTYyMzRiMzRiMjU4YjM1ZWNiOGE4YzFmLjAwMjkiXSwiZW1haWwiOlsibXY5YnR4eWMybkBwcml2YXRlcmVsYXkuYXBwbGVpZC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJhcHBsZS5jb20ifX0.n_Yiw45_2oCnBIWW92uw14S5ZXvrdlTmrQt4Q_ZOeZDfhAnSP3pkKEqMfxFQ-2arLkn34q-AYNO0dw4X1N5-gC21uwQnhkAY4uIaABtktKp1dDwtRKvDuTWR1YGROOBSKmm6wUPSvcrBm485tt2VxZaJhb0mEhAeJLeOQAqJEmIajbuqhOUNmPXjcVr0p73iA1j1UwXUmKiGcswQPwLuG4DQHZ2lTSzqRlN1TBcfo_LBnL2gUdji-zL6IfHHAUy9Rucrj0LBxfFmKWHUfrnvxQtsq-IYGW0_XchWYYFDpzR7tD5NhjQxaesbdNQ5VXNM4aP1HboMauTcVu8MdoVlxQ",
+        "apiKey": "AIzaSyADkf-0C86lLa6b1wxcShYhiSpdNLO5Y9w",
+        "expirationTime": 1619732787662,
+        "refreshToken": "AGEhc0B6fI29Z8nYcwEyUG1kIrac-eefMWA5_PpDgZJeU2rNSh6A5u6jIWPFfMw5Xzt1hje9lVxJRo2DgejKa-1o62c6u62SOBXvZwav9C57uRPb-oErxDwUfY1v0oWJILw9ZvF3nibNQDpuO2Kkmk6dnKM2IDPkWuVke3x3UGHWhhfBp7kwOAgvB6d4MWRNGFe_4xb8V4JzzehGhk-Se9sNCi_qqEL02S01Zy257j3VR7qRBCIriASG8JPRkTsaBUxjKCf5t590piCZUx_0Ovf9K8-4KZ6QEe-YZxlZTT7vCg4lWxuJK42hh5d3NpCdDDTLfY6Iuzeq",
+    },
+    "tenantId": null,
+    "uid": "BtlTM8iwVnOHte3piVM9iaCF9Qb2",
+}
+
 export const testData = {
     phraseData,
     collectibleData,
     nftData,
     scanData,
-    seriesData
+    seriesData,
+    userData
 }

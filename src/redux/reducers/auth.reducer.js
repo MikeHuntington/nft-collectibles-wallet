@@ -1,6 +1,7 @@
 import { 
   LOGIN_SUCCESS, 
-  LOGIN_FAILURE
+  LOGIN_FAILURE,
+  LOGOUT
  } from '../types';
 
 
@@ -23,6 +24,13 @@ export function authReducer(state = initialState, action) {
       return {
         ...state,
         error: action.error
+      }
+    }
+    case LOGOUT: {
+      return {
+        ...state,
+        token: null,
+        user: null
       }
     }
     default:

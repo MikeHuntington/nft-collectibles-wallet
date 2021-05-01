@@ -108,6 +108,14 @@ export default {
     } catch (e) {
       throw(e)
     }
+  },
+
+  logout: async () => {
+    firebase.auth().signOut().then(() => {
+      return true
+    }).catch((error) => {
+      throw(error)
+    });
   }
 
 }

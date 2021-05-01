@@ -3,7 +3,9 @@ import {
   FACEBOOK_LOGIN, 
   GOOGLE_LOGIN,
   LOGIN_SUCCESS,
-  LOGIN_FAILURE
+  LOGIN_FAILURE,
+  LOGOUT,
+  TEST_LOGIN
 } from '../types';
 
 export const loginSuccess = (payload) => {
@@ -30,4 +32,8 @@ export const googleLogin = () => {
 
 export const appleLogin = () => {
   return { type: APPLE_LOGIN }
+}
+
+export const logout = () => {
+  return { type: LOGOUT }
 }

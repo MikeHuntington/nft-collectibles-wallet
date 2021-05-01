@@ -40,10 +40,7 @@ const Drops = ({navigation}) => {
 
     return (
         <BaseContainer 
-            navigationMenuHandler={() => navigation.openDrawer()} 
-            navigationTitle="Drops 🔥" 
-            navigationLeftIconType="menu"
-            navigationIcon={require('../../../assets/LootBoxLogo-BoxWhite.png')}>
+            navigationTitle="Drops 🔥" >
             
 
             <ScrollView>
