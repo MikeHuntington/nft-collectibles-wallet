@@ -44,7 +44,7 @@ const Scan = ({navigation}) => {
     useEventListener('blur', blurHandler, navigation)
     useEventListener('focus', focusHandler, navigation)
 
-    const handleBarCodeScanned = ({ data }) => {
+    const handleQRScanned = ({ data }) => {
         setScanned(true)
         navigation.navigate(constants.ScannerScreens.Review, {claim:data})
     };
@@ -69,7 +69,7 @@ const Scan = ({navigation}) => {
         return (
             <BarCodeScanner
                 barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
-                onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+                onBarCodeScanned={scanned ? undefined : handleQRScanned}
                 style={StyleSheet.absoluteFillObject}
             />
         )

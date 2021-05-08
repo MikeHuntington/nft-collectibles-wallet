@@ -20,18 +20,12 @@ const collectibleData = [
 ]
 
 const scanData = {
-    provider: {
-        id: 'network.gamepower.Wallet',
-        name: 'GamePower Network',
-        endpoints: ['gamepower.io'],
-        standard: 'orml',
-        module: 'ormlNFT'
-    },
-    nft: {
-        id: 'de4558fbap89s65dfjb430390345bjsass54ee'
-    }
+    c: 0, //chain
+    p: 'QmQc5T6PMoYEDRzMJbcKPAvjZYwhi91bRnuAzhKMJriUCb', //provider
+    n: 'de4558fbap89s65dfjb430390345bjsass54ee', //nft
 }
-//lootboxwallet://claim;pid:network.gamepower.Wallet;name:GamePower Network;enpoints:gamepower.io|gamepower.network;standard:orml;module:ormlNFT;nft:de4558fbap89s65dfjb430390345bjsass54ee
+//lootbox://claim;c:0;p:QmQc5T6PMoYEDRzMJbcKPAvjZYwhi91bRnuAzhKMJriUCb;n:de4558fbap89s65dfjb430390345bjsass54ee
+//https://ipfs.io/ipfs/QmTVVFiJztv5Qkp5nfYLNBwnbX3fcPjHEriP9wbuMHr3MR?filename=provider.json
 
 const nftData = {
     collection: '0ahhadf874a77b-APPL',
