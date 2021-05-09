@@ -4,7 +4,7 @@ import { Alert } from 'react-native'
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 
 import {AuthNavigator} from './AuthNavigator'
-import {DrawerNavigator} from './DrawerNavigator'
+import {TabNavigator} from './TabNavigator'
 
 const baseTheme = {
     ...DefaultTheme,
@@ -26,7 +26,7 @@ const MainNav = () => {
 
     return (
         <NavigationContainer theme={baseTheme}>
-            {(token != null) ? <DrawerNavigator /> : <AuthNavigator />}
+            {(token != null) ? <TabNavigator /> : <AuthNavigator />}
         </NavigationContainer>
     )
 }

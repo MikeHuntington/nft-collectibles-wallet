@@ -52,7 +52,8 @@ const Welcome = ({navigation}) => {
     }
 
     const handleAdvancedUser = () => {
-        dispatch(loginSuccess({token:testData.userData.stsTokenManager, user: testData.userData}));
+        //dispatch(loginSuccess({token:testData.userData.stsTokenManager, user: testData.userData}));
+        navigation.navigate(constants.AuthScreens.CreatePassword)
     }
       
     return (
