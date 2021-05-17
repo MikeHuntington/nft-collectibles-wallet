@@ -21,10 +21,22 @@ const collectibleData = [
 
 const scanData = {
     c: 0, //chain
-    p: 'QmQc5T6PMoYEDRzMJbcKPAvjZYwhi91bRnuAzhKMJriUCb', //provider
-    n: 'de4558fbap89s65dfjb430390345bjsass54ee', //nft
+    p: 'gamepower', //provider
+    n: '25', //nft id
 }
-//lootbox://claim;c:0;p:QmQc5T6PMoYEDRzMJbcKPAvjZYwhi91bRnuAzhKMJriUCb;n:de4558fbap89s65dfjb430390345bjsass54ee
+/*
+/ QR URI Format
+/ c = chain
+// 0 = substrate
+// 1 = moonbeam
+// 2 = acala
+// 3 = ethereum
+// 4 = polygon
+// 5 = solana
+/ p = provider (only for c0)
+/ n = NFT ID / Contract
+*/
+//nero:claim;c:0;p:gamepower;n:25
 //https://ipfs.io/ipfs/QmTVVFiJztv5Qkp5nfYLNBwnbX3fcPjHEriP9wbuMHr3MR?filename=provider.json
 
 const nftData = {
