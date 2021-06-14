@@ -22,7 +22,7 @@ const collectibleData = [
 const scanData = {
     c: 0, //chain
     p: 'gamepower', //provider
-    n: '25', //nft id
+    a: '25', //asset claim id
 }
 /*
 / QR URI Format
@@ -33,10 +33,11 @@ const scanData = {
 // 3 = ethereum
 // 4 = polygon
 // 5 = solana
+// 6 = RMKR
 / p = provider (only for c0)
 / n = NFT ID / Contract
 */
-//nero:claim;c:0;p:gamepower;n:25
+//nero:claim;c:0;p:gamepower;a:25
 //https://ipfs.io/ipfs/QmTVVFiJztv5Qkp5nfYLNBwnbX3fcPjHEriP9wbuMHr3MR?filename=provider.json
 
 const nftData = {
